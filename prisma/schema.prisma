@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  name     String
+  email    String    @unique
+  password String
+  datasets Dataset[]
+  queries  Query[]
+}
+
+model Dataset {
+  id            Int       @id @default(autoincrement())
+  name      String
+  size Int?
+  createdAt    DateTime  @default(now())
+  user_id        Int
+  user          User      @relation(fields: [user_id], references: [id])
+  records       Record[]
+  queries Query[]
+}
+
+model Record {
+  id         Int      @id @default(autoincrement())
+  dataset_id Int
+  data_json  Json
+  createdAt  DateTime @default(now())
+  dataset    Dataset  @relation(fields: [dataset_id], references: [id])
+}
+
+model Query {
+  id        Int      @id @default(autoincrement())
+  dataset_id Int
+  user_id   Int
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [user_id], references: [id])
+  dataset  Dataset @relation(fields: [dataset_id], references: [id])
+}

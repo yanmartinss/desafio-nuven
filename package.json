@@ -1,0 +1,46 @@
+{
+  "name": "desafio-nuven",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L --watch src --ext ts --exec ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanmartinss/desafio-nuven.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanmartinss/desafio-nuven/issues"
+  },
+  "homepage": "https://github.com/yanmartinss/desafio-nuven#readme",
+  "dependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "csv-parse": "^6.1.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.12.0",
+    "@types/cors": "^2.8.19",
+    "@types/csv-parse": "^1.1.12",
+    "@types/express": "^5.0.3",
+    "@types/multer": "^2.0.0",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/pdf-parse": "^1.1.5",
+    "prisma": "^6.12.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
