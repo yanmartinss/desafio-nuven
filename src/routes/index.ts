@@ -7,6 +7,9 @@ import queriesRouter from "./queries";
 
 const router = express.Router();
 
+router.use("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 router.use("/auth", authRouter);
 router.use(userRouter);
 router.use("/datasets", datasetRouter);
