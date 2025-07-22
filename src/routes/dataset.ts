@@ -10,13 +10,43 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 const datasetRouter = express.Router();
 
+/**
+ * @openapi
+ * /datasets/upload:
+ *   post:
+ *     tags: [Upload]
+ *     summary: Upload
+ *     responses:
+ *       200:
+ *         description: Faz o upload de algum arquivo csv ou pdf
+ */
 datasetRouter.post(
   "/upload",
   jwtStrategyAuth,
   upload.single("file"),
   DatasetController.upload
 );
+/**
+ * @openapi
+ * /datasets:
+ *   get:
+ *     tags: [Upload]
+ *     summary: Datasets
+ *     responses:
+ *       200:
+ *         description: Retorna os datasets criados
+ */
 datasetRouter.get("", jwtStrategyAuth, DatasetController.getDatasets);
+/**
+ * @openapi
+ * /datasets/:id/records:
+ *   post:
+ *     tags: [Upload]
+ *     summary: Datasets
+ *     responses:
+ *       200:
+ *         description: Retorna os registros de um dataset específico
+ */
 datasetRouter.get(
   "/:id/records",
   jwtStrategyAuth,
